@@ -1,17 +1,26 @@
+import PostCard from "@/components/PostCard"
+import { Metadata } from "next"
+import Link from "next/link"
+import { title } from "process"
 
-type PostType = {
+export type PostType = {
     id: string,
     name: string,
     description: string
-    images:{url:string}[]
+    images: { url: string }[]
+}
+
+export const metadata:Metadata={
+    title:"Products",
+    description:"Products page",
+    
 }
 
 export default async function Posts() {
 
-    const { data }: { data:  PostType[] }  = await fetch("https://oline-shop-backend.onrender.com/api/products", {
+    const { data }: { data: PostType[] } = await fetch("https://oline-shop-backend.onrender.com/api/products", {
         cache: 'force-cache'
     }).then(res => res.json())
-    console.log(data)
 
 
     return (
@@ -47,31 +56,8 @@ export default async function Posts() {
                     </div>
 
                     <div className="divide-y divide-gray-100">
-                        {data?.map((post:PostType) => (
-                            <article
-                                key={post?.id}
-                                className="flex flex-col gap-4 p-5 transition hover:bg-gray-50 sm:flex-row sm:items-center"
-                            >
-                                {/* Post Icon */}
-                                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xl font-bold text-blue-600">
-                                   <img width={50} src={post?.images[0]?.url} alt="" />
-                                </div>
-
-                                {/* Post Content */}
-                                <div className="min-w-0 flex-1">
-
-
-                                    <h3 className="truncate text-base font-semibold text-gray-900">
-                                        {post?.name}
-                                    </h3>
-
-                                    <p className="mt-1 line-clamp-2 text-sm leading-6 text-gray-500">
-                                        {post?.description}
-                                    </p>
-
-
-                                </div>
-                            </article>
+                        {data?.map((post: PostType) => (
+                            <PostCard key={post?.id} post={post}/>
                         ))}
                     </div>
 

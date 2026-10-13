@@ -1,6 +1,6 @@
-
+"use client"
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 const menus = [
   { name: "Home", href: "/", icon: "🏠" },
   { name: "Posts", href: "/posts", icon: "📝" },
@@ -9,7 +9,10 @@ const menus = [
   { name: "Teachers", href: "/teachers", icon: "👨‍🏫" },
 ];
 
+
 export default function Navbar() {
+  const pathName = usePathname()
+  console.log(pathName)
   return (
     <nav className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">

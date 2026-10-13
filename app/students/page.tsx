@@ -10,7 +10,7 @@ export default async function Posts() {
 
     const { data }: { data: PostType[] } = await fetch("https://oline-shop-backend.onrender.com/api/products",
         {
-            next: {revalidate:60}
+            next: { revalidate: 60 }
         }
     ).then(res => res.json())
     console.log(data)

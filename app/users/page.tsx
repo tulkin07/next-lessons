@@ -1,9 +1,18 @@
+import { Metadata } from "next"
 
 type PostType = {
     id: string,
     name: string,
     description: string
     images:{url:string}[]
+}
+
+export const metadata:Metadata={
+    title:{
+        absolute:"Users"
+    },
+    description:"Users page",
+    
 }
 
 export default async function Posts() {
