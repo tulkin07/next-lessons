@@ -4,6 +4,12 @@ import Categories from "@/components/Categories";
 import Products from "@/components/Products";
 import BottomBanner from "@/components/BottomBanner";
 import HeroBanner from "@/components/HeroBanner";
+import { Metadata } from "next";
+
+// export const metadata: Metadata = {
+//   title: "Bizda online dokoni"
+// }
+
 
 export default function Home() {
   return (

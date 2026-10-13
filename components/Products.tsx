@@ -1,13 +1,13 @@
 import { ArrowRight, ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
 import Card from './Card';
-import { getAlProdcuts } from '@/services/products';
+import { getAllProducts } from '@/services/products';
 import { Product } from '@/types/products';
 
 
 export default async function Products() {
  
-    const {data} = await getAlProdcuts()
+    const {data} = await getAllProducts()
   
 
     return (

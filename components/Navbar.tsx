@@ -110,7 +110,7 @@ export default function Navbar() {
       </div>
 
       {/* Categories navigation */}
-      <nav className="mx-auto hidden max-w-7xl items-center gap-1 overflow-x-auto px-4 sm:px-6 md:flex">
+      {/* <nav className="mx-auto hidden max-w-7xl items-center gap-1 overflow-x-auto px-4 sm:px-6 md:flex">
         {menus.map((menu) => {
           const active = isActive(menu.href);
 
@@ -141,7 +141,7 @@ export default function Navbar() {
             Chegirmalar
           </Link>
         </div>
-      </nav>
+      </nav> */}
     </header>
   );
 }

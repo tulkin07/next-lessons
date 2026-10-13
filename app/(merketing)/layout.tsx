@@ -13,6 +13,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: {
+    default:"Bizda online dokoni ",
+    template:"%s | Bizda"
+  },
+  description:"Bizda internet do'koni - kitoblar, elektronika, maishiy texnika va boshqalar ✔️ O'zbekiston bo'ylab tez yetkazib berish ⭐Arzon narxlar ☝ Keng assortiment ⚡ Chegirmalar ⌚ Bo'lib to'lash"
+}
+
 
 
 export default function RootLayout({
