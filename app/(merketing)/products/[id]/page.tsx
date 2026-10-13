@@ -7,7 +7,24 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   console.log(data)
   return {
     title: data?.name,
-    description: data?.description
+    description: data?.description,
+    openGraph: {
+      type: "website",
+      siteName: "Bizda",
+      title: data.name,
+      description: data.description,
+      url: `/products/${id}`,
+      images: data?.images?.[0].url
+        ? [
+            {
+              url: data?.images?.[0].url,
+              alt: data.name,
+              width: 1200,
+              height: 630,
+            },
+          ]
+        : [],
+    }
     
   }
 }
