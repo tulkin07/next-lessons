@@ -18,7 +18,24 @@ export const metadata: Metadata = {
     default:"Bizda online dokoni ",
     template:"%s | Bizda"
   },
-  description:"Bizda internet do'koni - kitoblar, elektronika, maishiy texnika va boshqalar ✔️ O'zbekiston bo'ylab tez yetkazib berish ⭐Arzon narxlar ☝ Keng assortiment ⚡ Chegirmalar ⌚ Bo'lib to'lash"
+  description:"Bizda internet do'koni - kitoblar, elektronika, maishiy texnika va boshqalar ✔️ O'zbekiston bo'ylab tez yetkazib berish ⭐Arzon narxlar ☝ Keng assortiment ⚡ Chegirmalar ⌚ Bo'lib to'lash",
+  openGraph: {
+    type: "website",
+    siteName: "Test",
+    title: "Test — Qurilish uchun hammasi!",
+    description:
+      "Test uchun kerakli mahsulotlarni Bizda bilan toping.",
+    url: "https://next-lessons-pi.vercel.app",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Test — Qurilish uchun hammasi!",
+      },
+    ],
+    locale: "uz_UZ",
+  },
 }
 
 
