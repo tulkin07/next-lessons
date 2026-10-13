@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import type { PostType } from "../page";
 
@@ -8,16 +9,9 @@ type Props = {
 async function getProduct(id: string): Promise<PostType> {
   const url = `https://oline-shop-backend.onrender.com/api/products/${id}`;
 
-  let res: Response;
-
-  try {
-    res = await fetch(url, {
-      cache: "no-store",
-    });
-  } catch (error) {
-    console.error("API ga ulanishda xato:", error);
-    throw new Error("API serveriga ulanib bo'lmadi");
-  }
+  const res = await fetch(url, {
+    cache: "no-store",
+  });
 
   if (!res.ok) {
     throw new Error(`API xatosi: ${res.status}`);
@@ -34,9 +28,29 @@ export async function generateMetadata({
   const { id } = await params;
   const product = await getProduct(id);
 
+  const imageUrl = product.images?.[0]?.url;
+
   return {
     title: product.name,
     description: product.description,
+
+    openGraph: {
+      type: "website",
+      siteName: "Bizda",
+      title: product.name,
+      description: product.description,
+      url: `/products/${id}`,
+      images: imageUrl
+        ? [
+            {
+              url: imageUrl,
+              alt: product.name,
+              width: 1200,
+              height: 630,
+            },
+          ]
+        : [],
+    },
   };
 }
 
